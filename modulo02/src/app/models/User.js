@@ -18,8 +18,12 @@ class User extends Model {
         user.passwordHash = await bcrypt.hash(user.password, 8);
       }
     });
-  
+
     return this;
-  };
+  }
+
+  checkPassword(password) {
+    return bcrypt.compare(password, this.passwordHash);
+  }
 }
 export default User;
