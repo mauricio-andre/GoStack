@@ -3,17 +3,20 @@ import bcrypt from 'bcryptjs';
 
 class User extends Model {
   static init(sequelize) {
-    super.init({
-      name: Sequelize.STRING,
-      email: Sequelize.STRING,
-      password: Sequelize.VIRTUAL,
-      passwordHash: Sequelize.STRING,
-      provider: Sequelize.BOOLEAN,
-    }, {
-      sequelize,
-    });
+    super.init(
+      {
+        name: Sequelize.STRING,
+        email: Sequelize.STRING,
+        password: Sequelize.VIRTUAL,
+        passwordHash: Sequelize.STRING,
+        provider: Sequelize.BOOLEAN,
+      },
+      {
+        sequelize,
+      }
+    );
 
-    this.addHook('beforeSave', async (user) => {
+    this.addHook('beforeSave', async user => {
       if (user.password) {
         user.passwordHash = await bcrypt.hash(user.password, 8);
       }

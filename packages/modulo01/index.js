@@ -1,9 +1,3 @@
-/*
- * Desenvolvido por Mauricio Redmerski André
- * Projeto da Rocketseat
- * 2020-02-01
-*/
-
 const express = require('express');
 
 const server = express();
