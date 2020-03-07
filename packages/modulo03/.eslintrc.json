@@ -19,9 +19,8 @@
   "rules": {
     "prettier/prettier": "error",
     "class-methods-use-this": "off", // não obrigue o use de this
-    "no-param-reassign": "off" // não bloqueie variaveis recebidas
-    //"camelcase": "off", // não obrigue o formato camelCase
-    // "no-unused-vars": ["error", { "argsIgnorePattern": "next" }]
-    // não de erro no método next caso eu não o utilize
+    "no-param-reassign": "off", // não bloqueie variaveis recebidas
+    "no-unused-vars": ["error", { "argsIgnorePattern": "next" }]
+    //"camelcase": "off" // não obrigue o formato camelCase
   }
 }
