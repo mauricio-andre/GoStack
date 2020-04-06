@@ -1,9 +1,11 @@
 import React from 'react';
 import './App.css';
 
+import imagem from './assets/imagem.jpeg';
+
 function App() {
   return (
-    <h1>Olá mundo</h1>
+    <img src={imagem} />
   );
 }
 
