@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 
-import imagem from './assets/imagem.jpeg';
+import TechList from './components/TechList';
 
 function App() {
   return (
-    <img src={imagem} />
+    <TechList />
   );
 }
 
