@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import api from '../../services/api';
 
-export default class Repository extends Component {
+class Repository extends Component {
   constructor() {
     super();
     this.state = {
@@ -38,3 +39,13 @@ export default class Repository extends Component {
     return <h1>Repository:</h1>;
   }
 }
+
+Repository.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      repository: PropTypes.string,
+    }),
+  }).isRequired,
+};
+
+export default Repository;
