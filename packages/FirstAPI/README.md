@@ -19,6 +19,6 @@ Este é o primeiro projeto Node desenvolvido no bootcamp GoStack 10. É um proje
 ### Testando a API
 
 Os testes deste projeto podem ser realizados por meio de qualquer ferramenta de teste de API REST, durante a construção deste projeto, a ferramenta Insomnia foi utilizada para a realização dos testes.
-Você pode baixar o workspace de testes deste projeto pressionando o botão abaixo, ou acesse o arquivo diretamente deste repositório [insomnia/FastFeet](../../.github/insomnia/FastFeet.json)
+Você pode baixar o workspace de testes deste projeto pressionando o botão abaixo, ou acesse o arquivo diretamente deste repositório [insomnia/FirstAPI](../../.github/insomnia/FirstAPI.json)
 
-[![Run in Insomnia}](../../.github/insomniaRun.svg)](https://insomnia.rest/run/?label=FastFeet&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fmauricio-andre%2Fbootcamp-gostack-desafios%2Fmaster%2FinsomniaApiTest%2FFastFeet.json)
+[![Run in Insomnia}](../../.github/insomniaRun.svg)](https://insomnia.rest/run/?label=FirstAPI&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fmauricio-andre%2FgoStack10%2Fmaster%2F.github%2Finsomnia%2FFirstAPI.json)

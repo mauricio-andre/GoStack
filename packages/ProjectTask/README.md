@@ -23,7 +23,7 @@ Para instruções sobre a instalação das dependências deste projeto consulte 
 Os testes deste desafio podem ser realizados por meio de qualquer ferramenta de teste de API REST, durante a construção deste projeto, a ferramenta Insomnia foi utilizada para a realização dos testes.
 Você pode baixar o workspace de testes deste desafio pressionando o botão abaixo, ou acesse o arquivo diretamente deste repositório [insomnia/ProjectTask](../../.github/insomnia/ProjectTask.json)
 
-[![Run in Insomnia}](../../.github/insomniaRun.svg)](https://insomnia.rest/run/?label=ProjectTask&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fmauricio-andre%2Fbootcamp-gostack-desafios%2Fmaster%2FinsomniaApiTest%2FProjectTask.json)
+[![Run in Insomnia}](../../.github/insomniaRun.svg)](https://insomnia.rest/run/?label=ProjectTask&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fmauricio-andre%2FgoStack10%2Fmaster%2F.github%2Finsomnia%2FProjectTask.json)
 
 ## Sobre o desafio
 
