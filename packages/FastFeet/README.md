@@ -26,4 +26,4 @@ Este diretório contém a resolução do desafio **FastFeet** proposto no bootca
 Os testes do backend deste desafio podem ser realizados por meio de qualquer ferramenta de teste de API REST, durante a construção deste projeto, a ferramenta Insomnia foi utilizada para a realização dos testes.
 Você pode baixar o workspace de testes deste desafio pressionando o botão abaixo, ou acesse o arquivo diretamente deste repositório [insomnia/FastFeet](../../.github/insomnia/FastFeet.json)
 
-[![Run in Insomnia}](../../.github/insomniaRun.svg)](https://insomnia.rest/run/?label=FastFeet&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fmauricio-andre%2Fbootcamp-gostack-desafios%2Fmaster%2FinsomniaApiTest%2FFastFeet.json)
+[![Run in Insomnia}](../../.github/insomniaRun.svg)](https://insomnia.rest/run/?label=FastFeet&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fmauricio-andre%2FgoStack10%2Fmaster%2F.github%2Finsomnia%2FFastFeet.json)
