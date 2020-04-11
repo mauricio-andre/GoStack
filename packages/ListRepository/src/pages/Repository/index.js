@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import api from '../../services/api';
 
-import { Loading, Ownner, IssueList } from './styles';
+import { Loading, Ownner, IssueList, Filter } from './styles';
 import Container from '../../components/Container';
 
 class Repository extends Component {
@@ -13,19 +13,25 @@ class Repository extends Component {
     this.state = {
       repository: {},
       issues: [],
+      stateIssue: 'open',
       loading: true,
     };
   }
 
   async componentDidMount() {
+    this.searchIssues();
+  }
+
+  searchIssues = async () => {
     const { match } = this.props;
+    const { stateIssue } = this.state;
     const repoName = decodeURIComponent(match.params.repository);
 
     const [repository, issues] = await Promise.all([
       api.get(`repos/${repoName}`),
       api.get(`repos/${repoName}/issues`, {
         params: {
-          state: 'open',
+          state: stateIssue,
           per_page: 5,
         },
       }),
@@ -36,13 +42,19 @@ class Repository extends Component {
       repository: repository.data,
       issues: issues.data,
     });
-  }
+  };
+
+  handleSelectChange = async e => {
+    await this.setState({ stateIssue: e.target.value });
+    this.searchIssues();
+  };
 
   render() {
-    const { repository, issues, loading } = this.state;
+    const { repository, issues, loading, stateIssue } = this.state;
     if (loading) {
       return <Loading>Carregando...</Loading>;
     }
+
     return (
       <Container>
         <Ownner>
@@ -51,6 +63,14 @@ class Repository extends Component {
           <h1>{repository.name}</h1>
           <p>{repository.description}</p>
         </Ownner>
+
+        <Filter>
+          <select onChange={this.handleSelectChange} value={stateIssue}>
+            <option value="all">Todos</option>
+            <option value="open">Abertos</option>
+            <option value="closed">Fechados</option>
+          </select>
+        </Filter>
 
         <IssueList>
           {issues.map(issue => (
