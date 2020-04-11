@@ -65,10 +65,11 @@ class Repository extends Component {
         </Ownner>
 
         <Filter>
+          <p>Filtrar issues</p>
           <select onChange={this.handleSelectChange} value={stateIssue}>
-            <option value="all">Todos</option>
-            <option value="open">Abertos</option>
-            <option value="closed">Fechados</option>
+            <option value="all">Todas</option>
+            <option value="open">Abertas</option>
+            <option value="closed">Fechadas</option>
           </select>
         </Filter>
 

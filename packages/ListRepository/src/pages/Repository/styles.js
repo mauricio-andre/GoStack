@@ -105,7 +105,13 @@ export const IssueList = styled.ul`
 export const Filter = styled.div`
   margin-top: 30px;
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
+
+  p {
+    font-weight: 600;
+    font-size: 16px;
+  }
 
   select {
     width: 150px;
