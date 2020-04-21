@@ -2,5 +2,11 @@
   "private": true,
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "react-native": "*"
+  },
+  "devDependencies": {
+    "react-native-cli": "^2.0.1"
+  }
 }
