@@ -115,10 +115,6 @@ class Main extends Component {
   }
 }
 
-Main.navigationOptions = {
-  title: 'Usuários',
-};
-
 Main.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func,
