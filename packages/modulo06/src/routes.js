@@ -12,9 +12,9 @@ export default function Routes() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
+          headerTintColor: 'white',
           headerTitleAlign: 'center',
           headerBackTitleVisible: false,
-          headerTintColor: 'white',
           headerStyle: { backgroundColor: '#7159c1' },
         }}
       >
