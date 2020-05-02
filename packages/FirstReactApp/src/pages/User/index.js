@@ -26,6 +26,7 @@ class User extends Component {
       page: 1,
       complete: false,
       loading: true,
+      refreshing: false,
     };
 
     navigation.setOptions({
@@ -58,8 +59,20 @@ class User extends Component {
     });
   };
 
+  refreshList = async () => {
+    this.setState({
+      complete: false,
+      refreshing: true,
+      page: 1,
+      stars: [],
+    });
+
+    await this.loadStars();
+    this.setState({ refreshing: false });
+  };
+
   render() {
-    const { stars, loading } = this.state;
+    const { stars, loading, refreshing } = this.state;
     const { route } = this.props;
     const { user } = route.params;
 
@@ -78,10 +91,16 @@ class User extends Component {
             data={stars}
             onEndReached={this.loadStars}
             onEndReachedThreshold={0.2}
+            refreshing={refreshing}
+            onRefresh={this.refreshList}
             keyExtractor={star => String(star.id)}
-            ListEmptyComponent={() => (
-              <NoItems>Esse usuário não possui stars</NoItems>
-            )}
+            ListEmptyComponent={() => {
+              if (refreshing) {
+                return null;
+              }
+
+              return <NoItems>Esse usuário não possui stars</NoItems>;
+            }}
             renderItem={({ item }) => (
               <Starred>
                 <OwnerAvatar source={{ uri: item.owner.avatar_url }} />
