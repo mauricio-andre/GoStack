@@ -46,6 +46,7 @@ Abaixo segue uma lista com os projetos desenvolvidos no GoStack 10, esses projet
 * [FaceFake:](./packages/FaceFake/README.md) Uma pseudo tela do facebook com uma lista de posts e comentários
 * [FastFeet:](./packages/FastFeet/README.md) Aplicação completa backend, frontend e mobile para um serviço de entregas
 * [FirstAPI:](./packages/FirstAPI/README.md) Primeira aplicação Node desenvolvida
+* [FirstReactApp:](./packages/FirstReactApp/README.md) Primeira aplicação React Native que lista usuários do github
 * [FirstReactJS:](./packages/FirstReactJS/README.md) Primeira aplicação ReactJS desenvolvida
 * [GoBarber:](./packages/GoBarber/README.md) Aplicação completa backend, frontend e mobile para uma barbearia
 * [ListRepository:](./packages/ListRepository/README.md) Projeto frontend que apresenta uma lista de repositórios do github e seus detalhes

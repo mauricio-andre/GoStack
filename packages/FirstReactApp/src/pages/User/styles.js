@@ -1,4 +1,6 @@
 import styled from 'styled-components/native';
+import { ActivityIndicator } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
   flex: 1;
@@ -35,13 +37,23 @@ export const Bio = styled.Text`
   text-align: center;
 `;
 
+export const Loader = styled(ActivityIndicator)`
+  flex: 1;
+`;
+
+export const NoItems = styled.Text`
+  color: #333;
+  line-height: 18px;
+  text-align: center;
+`;
+
 export const Stars = styled.FlatList.attrs({
-  showVerticalScrollIndicator: false,
+  showsVerticalScrollIndicator: false,
 })`
   margin-top: 20px;
 `;
 
-export const Starred = styled.View`
+export const Starred = styled(RectButton)`
   background: #f5f5f5;
   border-radius: 4px;
   padding: 10px 15px;
