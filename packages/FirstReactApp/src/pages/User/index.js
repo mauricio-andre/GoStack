@@ -71,6 +71,11 @@ class User extends Component {
     this.setState({ refreshing: false });
   };
 
+  handleNavigate = repository => {
+    const { navigation } = this.props;
+    navigation.navigate('Repository', { repository });
+  };
+
   render() {
     const { stars, loading, refreshing } = this.state;
     const { route } = this.props;
@@ -102,7 +107,7 @@ class User extends Component {
               return <NoItems>Esse usuário não possui stars</NoItems>;
             }}
             renderItem={({ item }) => (
-              <Starred>
+              <Starred onPress={() => this.handleNavigate(item)}>
                 <OwnerAvatar source={{ uri: item.owner.avatar_url }} />
                 <Info>
                   <Title>{item.name}</Title>
@@ -120,6 +125,7 @@ class User extends Component {
 User.propTypes = {
   navigation: PropTypes.shape({
     setOptions: PropTypes.func,
+    navigate: PropTypes.func,
   }).isRequired,
   route: PropTypes.shape({
     params: PropTypes.shape({
