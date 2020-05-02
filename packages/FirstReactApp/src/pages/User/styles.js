@@ -40,8 +40,14 @@ export const Loader = styled(ActivityIndicator)`
   flex: 1;
 `;
 
+export const NoItems = styled.Text`
+  color: #333;
+  line-height: 18px;
+  text-align: center;
+`;
+
 export const Stars = styled.FlatList.attrs({
-  showVerticalScrollIndicator: false,
+  showsVerticalScrollIndicator: false,
 })`
   margin-top: 20px;
 `;
