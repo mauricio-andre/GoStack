@@ -8,7 +8,7 @@ import {
 } from 'react-icons/md';
 
 import * as CartActions from '../../store/modules/cart/actions';
-import { formarPrice } from '../../util/format';
+import { formatPrice } from '../../util/format';
 
 import { Container, ProductTable, Total } from './styles';
 
@@ -88,9 +88,9 @@ const mapDispatchToProps = dispatch =>
 const mapStateToProps = state => ({
   cart: state.cart.map(product => ({
     ...product,
-    subtotal: formarPrice(product.price * product.amount),
+    subtotal: formatPrice(product.price * product.amount),
   })),
-  total: formarPrice(
+  total: formatPrice(
     state.cart.reduce((total, product) => {
       return total + product.price * product.amount;
     }, 0)

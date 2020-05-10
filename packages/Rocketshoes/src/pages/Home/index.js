@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { MdAddShoppingCart } from 'react-icons/md';
 import api from '../../services/api';
 import * as CartActions from '../../store/modules/cart/actions';
-import { formarPrice } from '../../util/format';
+import { formatPrice } from '../../util/format';
 
 import { ProductList } from './styles';
 
@@ -21,7 +21,7 @@ class Home extends Component {
 
     const data = response.data.map(product => ({
       ...product,
-      priceFormatted: formarPrice(product.price),
+      priceFormatted: formatPrice(product.price),
     }));
 
     this.setState({ products: data });
