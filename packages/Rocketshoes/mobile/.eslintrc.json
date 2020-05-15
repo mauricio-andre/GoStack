@@ -33,6 +33,8 @@
       { "extensions": [ ".jsx", ".js" ] }
     ],
     // Não obrigue export deafult em arquivos com uma unica exportação
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    // Não aponte erro ao utilizar console.tron
+    "no-console": ["error", { "allow": ["tron"] }]
   }
 }
