@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FlatList, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
+import api from '../../services/api';
 
 import {
   Card,
@@ -14,33 +16,32 @@ import {
 } from './styles';
 
 export default function Home() {
-  const data = [
-    {
-      id: '0',
-      texto: 'teste',
-    },
-    {
-      id: '1',
-      texto: 'teste',
-    },
-  ];
+  const [products, setProducts] = useState([]);
+
+  async function loadProducts() {
+    const response = await api.get('/products');
+    setProducts(response.data);
+  }
+
+  useEffect(() => {
+    loadProducts();
+  }, []);
 
   return (
     <View>
       <FlatList
-        data={data}
+        data={products}
         horizontal
-        keyExtractor={item => item.id}
+        keyExtractor={product => product.id.toString()}
         renderItem={({ item }) => (
           <Card>
             <ProductImage
               source={{
-                uri:
-                  'https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis1.jpg',
+                uri: item.image,
               }}
             />
-            <ProductTitle>Tênis de Caminhada Leve Confortável</ProductTitle>
-            <ProductPrice>179.9</ProductPrice>
+            <ProductTitle>{item.title}</ProductTitle>
+            <ProductPrice>{item.price}</ProductPrice>
             <Button>
               <ProductAmount>
                 <Icon name="add-shopping-cart" size={22} color="#fff" />

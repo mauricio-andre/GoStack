@@ -29,6 +29,7 @@ export const Button = styled.TouchableOpacity`
   border-radius: 4px;
   flex-direction: row;
   align-items: center;
+  margin-top: auto;
 `;
 
 export const ProductAmount = styled.View`
