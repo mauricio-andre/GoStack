@@ -1,11 +1,15 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { RectButton } from 'react-native-gesture-handler';
-import PropTypes from 'prop-types';
+import { connect, useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 
 import { Box, Logo, Badge } from './styles';
 
-function Header({ navigation }) {
+function Header() {
+  const navigation = useNavigation();
+  const cartSize = useSelector(state => state.cart.length);
+
   return (
     <Box>
       <RectButton onPress={() => navigation.navigate('Home')}>
@@ -13,16 +17,10 @@ function Header({ navigation }) {
       </RectButton>
       <RectButton onPress={() => navigation.navigate('Cart')}>
         <Icon name="shopping-basket" size={25} color="#FFF" />
-        <Badge>0</Badge>
+        <Badge>{cartSize}</Badge>
       </RectButton>
     </Box>
   );
 }
 
-Header.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func,
-  }).isRequired,
-};
-
-export default Header;
+export default connect()(Header);

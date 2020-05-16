@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FlatList, View } from 'react-native';
+import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import api from '../../services/api';
@@ -16,7 +17,7 @@ import {
   ProductAmountText,
 } from './styles';
 
-export default function Home() {
+function Home(props) {
   const [products, setProducts] = useState([]);
 
   async function loadProducts() {
@@ -27,6 +28,13 @@ export default function Home() {
     }));
     setProducts(data);
   }
+
+  const handleAddProduct = product => {
+    props.dispatch({
+      type: 'ADD',
+      product,
+    });
+  };
 
   useEffect(() => {
     loadProducts();
@@ -47,7 +55,7 @@ export default function Home() {
             />
             <ProductTitle>{item.title}</ProductTitle>
             <ProductPrice>{item.priceFormatted}</ProductPrice>
-            <Button>
+            <Button onPress={() => handleAddProduct(item)}>
               <ProductAmount>
                 <Icon name="add-shopping-cart" size={22} color="#fff" />
                 <ProductAmountText>0</ProductAmountText>
@@ -60,3 +68,5 @@ export default function Home() {
     </View>
   );
 }
+
+export default connect()(Home);

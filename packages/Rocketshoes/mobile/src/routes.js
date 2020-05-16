@@ -19,12 +19,16 @@ export default function Routes() {
     <NavigationContainer theme={theme}>
       <Stack.Navigator>
         <Stack.Screen
-          options={{ header: Header }}
+          options={{
+            header: () => <Header />,
+          }}
           name="Home"
           component={Home}
         />
         <Stack.Screen
-          options={{ header: Header }}
+          options={{
+            header: () => <Header />,
+          }}
           name="Cart"
           component={Cart}
         />
