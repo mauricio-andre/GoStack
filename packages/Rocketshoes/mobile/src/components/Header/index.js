@@ -5,13 +5,11 @@ import PropTypes from 'prop-types';
 
 import { Box, Logo, Badge } from './styles';
 
-const logo = require('../../assets/images/logo.png');
-
 function Header({ navigation }) {
   return (
     <Box>
       <RectButton onPress={() => navigation.navigate('Home')}>
-        <Logo source={logo} />
+        <Logo />
       </RectButton>
       <RectButton onPress={() => navigation.navigate('Cart')}>
         <Icon name="shopping-basket" size={25} color="#FFF" />

@@ -9,8 +9,14 @@ import Cart from './pages/Cart';
 export default function Routes() {
   const Stack = createStackNavigator();
 
+  const theme = {
+    colors: {
+      background: '#191920',
+    },
+  };
+
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={theme}>
       <Stack.Navigator>
         <Stack.Screen
           options={{ header: Header }}
