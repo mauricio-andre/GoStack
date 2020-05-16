@@ -3,6 +3,7 @@ import { FlatList, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import api from '../../services/api';
+import { formatPrice } from '../../util/format';
 
 import {
   Card,
@@ -20,7 +21,11 @@ export default function Home() {
 
   async function loadProducts() {
     const response = await api.get('/products');
-    setProducts(response.data);
+    const data = response.data.map(product => ({
+      ...product,
+      priceFormatted: formatPrice(product.price),
+    }));
+    setProducts(data);
   }
 
   useEffect(() => {
@@ -41,7 +46,7 @@ export default function Home() {
               }}
             />
             <ProductTitle>{item.title}</ProductTitle>
-            <ProductPrice>{item.price}</ProductPrice>
+            <ProductPrice>{item.priceFormatted}</ProductPrice>
             <Button>
               <ProductAmount>
                 <Icon name="add-shopping-cart" size={22} color="#fff" />
