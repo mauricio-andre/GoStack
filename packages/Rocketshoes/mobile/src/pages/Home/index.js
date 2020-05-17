@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { FlatList, View } from 'react-native';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import api from '../../services/api';
 import { formatPrice } from '../../util/format';
+import { addToCartRequest } from '../../store/modules/Cart/actions';
 
 import {
   Card,
@@ -17,8 +18,9 @@ import {
   ProductAmountText,
 } from './styles';
 
-function Home(props) {
+function Home() {
   const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
 
   async function loadProducts() {
     const response = await api.get('/products');
@@ -30,10 +32,7 @@ function Home(props) {
   }
 
   const handleAddProduct = product => {
-    props.dispatch({
-      type: 'ADD',
-      product,
-    });
+    dispatch(addToCartRequest(product));
   };
 
   useEffect(() => {
