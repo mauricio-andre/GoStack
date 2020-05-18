@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FlatList, View } from 'react-native';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import api from '../../services/api';
@@ -19,8 +19,14 @@ import {
 } from './styles';
 
 function Home() {
-  const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
+  const [products, setProducts] = useState([]);
+  const amounts = useSelector(state =>
+    state.cart.reduce((amount, product) => {
+      amount[product.id] = product.amount;
+      return amount;
+    }, {})
+  );
 
   async function loadProducts() {
     const response = await api.get('/products');
@@ -31,8 +37,8 @@ function Home() {
     setProducts(data);
   }
 
-  const handleAddProduct = product => {
-    dispatch(addToCartRequest(product));
+  const handleAddProduct = id => {
+    dispatch(addToCartRequest(id));
   };
 
   useEffect(() => {
@@ -54,10 +60,10 @@ function Home() {
             />
             <ProductTitle>{item.title}</ProductTitle>
             <ProductPrice>{item.priceFormatted}</ProductPrice>
-            <Button onPress={() => handleAddProduct(item)}>
+            <Button onPress={() => handleAddProduct(item.id)}>
               <ProductAmount>
                 <Icon name="add-shopping-cart" size={22} color="#fff" />
-                <ProductAmountText>0</ProductAmountText>
+                <ProductAmountText>{amounts[item.id] || 0}</ProductAmountText>
               </ProductAmount>
               <ButtonText>Adicionar</ButtonText>
             </Button>
