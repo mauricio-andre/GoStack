@@ -1,5 +1,7 @@
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { connect, useSelector } from 'react-redux';
+
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {
@@ -16,32 +18,46 @@ import {
   TotalPrice,
   Button,
   ButtonText,
+  EmptyContainer,
+  EmptyText,
 } from './styles';
 
-export default function Cart() {
+function Cart() {
+  const cart = useSelector(state => state.cart);
+
   return (
     <Container>
-      <Product>
-        <ProductImage
-          source={{
-            uri:
-              'https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis1.jpg',
-          }}
-        />
-        <ProductDetails>
-          <Text>Tênis de Caminhada Leve Confortável</Text>
-          <ProductPrice>179.9</ProductPrice>
-        </ProductDetails>
-        <TouchableOpacity onPress={() => {}}>
-          <Icon name="delete-forever" size={22} color="#7159c1" />
-        </TouchableOpacity>
-      </Product>
-      <ProductControls>
-        <Icon name="add-circle-outline" size={22} color="#7159c1" />
-        <ProductAmount value="1" />
-        <Icon name="remove-circle-outline" size={22} color="#7159c1" />
-        <ProductSubtotal>179.9</ProductSubtotal>
-      </ProductControls>
+      {cart.length <= 0 ? (
+        <EmptyContainer>
+          <Icon name="remove-shopping-cart" size={90} color="#ddd" />
+          <EmptyText>Seu carrinho está vazio</EmptyText>
+        </EmptyContainer>
+      ) : (
+        cart.map(product => (
+          <View key={product.id}>
+            <Product>
+              <ProductImage
+                source={{
+                  uri: product.image,
+                }}
+              />
+              <ProductDetails>
+                <Text>{product.title}</Text>
+                <ProductPrice>{product.price}</ProductPrice>
+              </ProductDetails>
+              <TouchableOpacity onPress={() => {}}>
+                <Icon name="delete-forever" size={22} color="#7159c1" />
+              </TouchableOpacity>
+            </Product>
+            <ProductControls>
+              <Icon name="add-circle-outline" size={22} color="#7159c1" />
+              <ProductAmount value="1" />
+              <Icon name="remove-circle-outline" size={22} color="#7159c1" />
+              <ProductSubtotal>179.9</ProductSubtotal>
+            </ProductControls>
+          </View>
+        ))
+      )}
       <TotalContainer>
         <TotalText>Total</TotalText>
         <TotalPrice>179.9</TotalPrice>
@@ -52,3 +68,5 @@ export default function Cart() {
     </Container>
   );
 }
+
+export default connect()(Cart);

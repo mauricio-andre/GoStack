@@ -88,3 +88,13 @@ export const ButtonText = styled.Text`
   font-weight: bold;
   text-transform: uppercase;
 `;
+
+export const EmptyContainer = styled.View`
+  align-items: center;
+`;
+
+export const EmptyText = styled.Text`
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 18px;
+`;
