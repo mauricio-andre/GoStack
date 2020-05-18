@@ -22,7 +22,10 @@ import {
   EmptyText,
 } from './styles';
 import { formatPrice } from '../../util/format';
-import { removeFromCart } from '../../store/modules/Cart/actions';
+import {
+  removeFromCart,
+  updateAmountRequest,
+} from '../../store/modules/Cart/actions';
 
 function Cart() {
   const dispatch = useDispatch();
@@ -40,6 +43,10 @@ function Cart() {
       }, 0)
     )
   );
+
+  const handleUpdateAmountRequest = (id, amount) => {
+    dispatch(updateAmountRequest(id, amount));
+  };
 
   const handleRemoveFromCart = id => {
     dispatch(removeFromCart(id));
@@ -73,9 +80,25 @@ function Cart() {
                 </TouchableOpacity>
               </Product>
               <ProductControls>
-                <Icon name="add-circle-outline" size={22} color="#7159c1" />
+                <TouchableOpacity
+                  onPress={() =>
+                    handleUpdateAmountRequest(product.id, product.amount + 1)
+                  }
+                >
+                  <Icon name="add-circle-outline" size={22} color="#7159c1" />
+                </TouchableOpacity>
                 <ProductAmount defaultValue={product.amount.toString()} />
-                <Icon name="remove-circle-outline" size={22} color="#7159c1" />
+                <TouchableOpacity
+                  onPress={() =>
+                    handleUpdateAmountRequest(product.id, product.amount - 1)
+                  }
+                >
+                  <Icon
+                    name="remove-circle-outline"
+                    size={22}
+                    color="#7159c1"
+                  />
+                </TouchableOpacity>
                 <ProductSubtotal>{product.subtotal}</ProductSubtotal>
               </ProductControls>
             </View>
