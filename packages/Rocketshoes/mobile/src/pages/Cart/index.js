@@ -21,9 +21,23 @@ import {
   EmptyContainer,
   EmptyText,
 } from './styles';
+import { formatPrice } from '../../util/format';
 
 function Cart() {
-  const cart = useSelector(state => state.cart);
+  const cart = useSelector(state =>
+    state.cart.map(product => ({
+      ...product,
+      subtotal: formatPrice(product.price * product.amount),
+    }))
+  );
+
+  const total = useSelector(state =>
+    formatPrice(
+      state.cart.reduce((sum, product) => {
+        return sum + product.price * product.amount;
+      }, 0)
+    )
+  );
 
   return (
     <Container>
@@ -43,7 +57,7 @@ function Cart() {
               />
               <ProductDetails>
                 <Text>{product.title}</Text>
-                <ProductPrice>{product.price}</ProductPrice>
+                <ProductPrice>{product.priceFormatted}</ProductPrice>
               </ProductDetails>
               <TouchableOpacity onPress={() => {}}>
                 <Icon name="delete-forever" size={22} color="#7159c1" />
@@ -51,16 +65,16 @@ function Cart() {
             </Product>
             <ProductControls>
               <Icon name="add-circle-outline" size={22} color="#7159c1" />
-              <ProductAmount value="1" />
+              <ProductAmount defaultValue={product.amount.toString()} />
               <Icon name="remove-circle-outline" size={22} color="#7159c1" />
-              <ProductSubtotal>179.9</ProductSubtotal>
+              <ProductSubtotal>{product.subtotal}</ProductSubtotal>
             </ProductControls>
           </View>
         ))
       )}
       <TotalContainer>
         <TotalText>Total</TotalText>
-        <TotalPrice>179.9</TotalPrice>
+        <TotalPrice>{total}</TotalPrice>
       </TotalContainer>
       <Button>
         <ButtonText>Finalizar pedido</ButtonText>
