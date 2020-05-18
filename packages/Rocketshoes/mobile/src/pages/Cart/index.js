@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { connect, useSelector } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -22,8 +22,10 @@ import {
   EmptyText,
 } from './styles';
 import { formatPrice } from '../../util/format';
+import { removeFromCart } from '../../store/modules/Cart/actions';
 
 function Cart() {
+  const dispatch = useDispatch();
   const cart = useSelector(state =>
     state.cart.map(product => ({
       ...product,
@@ -39,6 +41,10 @@ function Cart() {
     )
   );
 
+  const handleRemoveFromCart = id => {
+    dispatch(removeFromCart(id));
+  };
+
   return (
     <Container>
       {cart.length <= 0 ? (
@@ -47,38 +53,42 @@ function Cart() {
           <EmptyText>Seu carrinho está vazio</EmptyText>
         </EmptyContainer>
       ) : (
-        cart.map(product => (
-          <View key={product.id}>
-            <Product>
-              <ProductImage
-                source={{
-                  uri: product.image,
-                }}
-              />
-              <ProductDetails>
-                <Text>{product.title}</Text>
-                <ProductPrice>{product.priceFormatted}</ProductPrice>
-              </ProductDetails>
-              <TouchableOpacity onPress={() => {}}>
-                <Icon name="delete-forever" size={22} color="#7159c1" />
-              </TouchableOpacity>
-            </Product>
-            <ProductControls>
-              <Icon name="add-circle-outline" size={22} color="#7159c1" />
-              <ProductAmount defaultValue={product.amount.toString()} />
-              <Icon name="remove-circle-outline" size={22} color="#7159c1" />
-              <ProductSubtotal>{product.subtotal}</ProductSubtotal>
-            </ProductControls>
-          </View>
-        ))
+        <>
+          {cart.map(product => (
+            <View key={product.id}>
+              <Product>
+                <ProductImage
+                  source={{
+                    uri: product.image,
+                  }}
+                />
+                <ProductDetails>
+                  <Text>{product.title}</Text>
+                  <ProductPrice>{product.priceFormatted}</ProductPrice>
+                </ProductDetails>
+                <TouchableOpacity
+                  onPress={() => handleRemoveFromCart(product.id)}
+                >
+                  <Icon name="delete-forever" size={22} color="#7159c1" />
+                </TouchableOpacity>
+              </Product>
+              <ProductControls>
+                <Icon name="add-circle-outline" size={22} color="#7159c1" />
+                <ProductAmount defaultValue={product.amount.toString()} />
+                <Icon name="remove-circle-outline" size={22} color="#7159c1" />
+                <ProductSubtotal>{product.subtotal}</ProductSubtotal>
+              </ProductControls>
+            </View>
+          ))}
+          <TotalContainer>
+            <TotalText>Total</TotalText>
+            <TotalPrice>{total}</TotalPrice>
+          </TotalContainer>
+          <Button>
+            <ButtonText>Finalizar pedido</ButtonText>
+          </Button>
+        </>
       )}
-      <TotalContainer>
-        <TotalText>Total</TotalText>
-        <TotalPrice>{total}</TotalPrice>
-      </TotalContainer>
-      <Button>
-        <ButtonText>Finalizar pedido</ButtonText>
-      </Button>
     </Container>
   );
 }

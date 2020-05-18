@@ -12,6 +12,13 @@ export function addToCartSuccess(product) {
   };
 }
 
+export function removeFromCart(id) {
+  return {
+    type: '@cart/REMOVE',
+    id,
+  };
+}
+
 export function updateAmountSuccess(id, amount) {
   return {
     type: '@cart/UPDATE_AMOUNT_SUCCESS',
