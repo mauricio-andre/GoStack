@@ -82,14 +82,6 @@ function Cart() {
               <ProductControls>
                 <TouchableOpacity
                   onPress={() =>
-                    handleUpdateAmountRequest(product.id, product.amount + 1)
-                  }
-                >
-                  <Icon name="add-circle-outline" size={22} color="#7159c1" />
-                </TouchableOpacity>
-                <ProductAmount defaultValue={product.amount.toString()} />
-                <TouchableOpacity
-                  onPress={() =>
                     handleUpdateAmountRequest(product.id, product.amount - 1)
                   }
                 >
@@ -98,6 +90,14 @@ function Cart() {
                     size={22}
                     color="#7159c1"
                   />
+                </TouchableOpacity>
+                <ProductAmount defaultValue={product.amount.toString()} />
+                <TouchableOpacity
+                  onPress={() =>
+                    handleUpdateAmountRequest(product.id, product.amount + 1)
+                  }
+                >
+                  <Icon name="add-circle-outline" size={22} color="#7159c1" />
                 </TouchableOpacity>
                 <ProductSubtotal>{product.subtotal}</ProductSubtotal>
               </ProductControls>
