@@ -2,6 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import NavigationService from './services/navigation';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
@@ -16,7 +17,10 @@ export default function Routes() {
   };
 
   return (
-    <NavigationContainer theme={theme}>
+    <NavigationContainer
+      theme={theme}
+      ref={navigatorRef => NavigationService.setNavigator(navigatorRef)}
+    >
       <Stack.Navigator>
         <Stack.Screen
           options={{
