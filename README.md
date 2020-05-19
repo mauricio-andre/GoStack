@@ -51,6 +51,7 @@ Abaixo segue uma lista com os projetos desenvolvidos no GoStack 10, esses projet
 * [GoBarber:](./packages/GoBarber/README.md) Aplicação completa backend, frontend e mobile para uma barbearia
 * [ListRepository:](./packages/ListRepository/README.md) Projeto frontend que apresenta uma lista de repositórios do github e seus detalhes
 * [ProjectTask:](./packages/ProjectTask/README.md) API simples que para salvar projetos e tarefas
+* [ReactHooks:](./packages/ReactHooks/README.md) Projeto pequeno para demonstração do uso de hooks
 * [Rocketshoes:](./packages/Rocketshoes/README.md) Um e-commerce web e mobile usando arquitetura flux
 
 ## Licença
