@@ -1,12 +1,12 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { RectButton } from 'react-native-gesture-handler';
-import { connect, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 
 import { Box, Logo, Badge } from './styles';
 
-function Header() {
+export default function Header() {
   const navigation = useNavigation();
   const cartSize = useSelector(state => state.cart.length);
 
@@ -22,5 +22,3 @@ function Header() {
     </Box>
   );
 }
-
-export default connect()(Header);
