@@ -1,0 +1,48 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "prettier",
+    "prettier/react"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "prettier",
+    "react-hooks"
+  ],
+  "rules": {
+    // Aponte todas as insconsistencias como erro
+    "prettier/prettier": "error",
+    // Aponte como aviso o uso de jsx em arquivos diferentes de jsx ou js
+    "react/jsx-filename-extension": [
+      "warn",
+      { "extensions": [ ".jsx", ".js" ] }
+    ],
+    // Não obrigue export deafult em arquivos com uma unica exportação
+    "import/prefer-default-export": "off",
+    // Não aponte erro ao utilizar console.tron
+    "no-console": ["error", { "allow": ["tron"] }],
+    // Não aponte erro ao editar variaveis recebidas na função
+    "no-param-reassign": "off",
+    // Avise sobre qualquer erro no uso dps hooks
+    "react-hooks/rules-of-hooks": "error",
+    // Avise sobre falta de dependencias em useEffect
+    "react-hooks/exhaustive-deps": "warn"
+  }
+}
