@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -27,7 +27,7 @@ import {
   updateAmountRequest,
 } from '../../store/modules/Cart/actions';
 
-function Cart() {
+export default function Cart() {
   const dispatch = useDispatch();
   const cart = useSelector(state =>
     state.cart.map(product => ({
@@ -115,5 +115,3 @@ function Cart() {
     </Container>
   );
 }
-
-export default connect()(Cart);

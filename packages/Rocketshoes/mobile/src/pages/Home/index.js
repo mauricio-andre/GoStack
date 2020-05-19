@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FlatList, View } from 'react-native';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import api from '../../services/api';
@@ -18,7 +18,7 @@ import {
   ProductAmountText,
 } from './styles';
 
-function Home() {
+export default function Home() {
   const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
   const amounts = useSelector(state =>
@@ -28,20 +28,21 @@ function Home() {
     }, {})
   );
 
-  async function loadProducts() {
-    const response = await api.get('/products');
-    const data = response.data.map(product => ({
-      ...product,
-      priceFormatted: formatPrice(product.price),
-    }));
-    setProducts(data);
-  }
-
   const handleAddProduct = id => {
     dispatch(addToCartRequest(id));
   };
 
   useEffect(() => {
+    async function loadProducts() {
+      const response = await api.get('/products');
+      const data = response.data.map(product => ({
+        ...product,
+        priceFormatted: formatPrice(product.price),
+      }));
+
+      setProducts(data);
+    }
+
     loadProducts();
   }, []);
 
@@ -73,5 +74,3 @@ function Home() {
     </View>
   );
 }
-
-export default connect()(Home);
