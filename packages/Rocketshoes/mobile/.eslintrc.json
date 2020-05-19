@@ -22,7 +22,8 @@
   },
   "plugins": [
     "react",
-    "prettier"
+    "prettier",
+    "react-hooks"
   ],
   "rules": {
     // Aponte todas as insconsistencias como erro
@@ -37,6 +38,10 @@
     // Não aponte erro ao utilizar console.tron
     "no-console": ["error", { "allow": ["tron"] }],
     // Não aponte erro ao editar variaveis recebidas na função
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    // Avise sobre qualquer erro no uso dps hooks
+    "react-hooks/rules-of-hooks": "error",
+    // Avise sobre falta de dependencias em useEffect
+    "react-hooks/exhaustive-deps": "warn"
   }
 }
