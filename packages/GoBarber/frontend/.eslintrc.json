@@ -42,6 +42,8 @@
     // Avise sobre qualquer erro no uso dps hooks
     "react-hooks/rules-of-hooks": "error",
     // Avise sobre falta de dependencias em useEffect
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    // Permita repassar propriedades como {...props}
+    "react/jsx-props-no-spreading": "off"
   }
 }
