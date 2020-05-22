@@ -22,6 +22,7 @@
   },
   "plugins": [
     "react",
+    "import",
     "prettier",
     "react-hooks"
   ],
@@ -44,6 +45,16 @@
     // Avise sobre falta de dependencias em useEffect
     "react-hooks/exhaustive-deps": "warn",
     // Permita repassar propriedades como {...props}
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    // Remover essa configuração quando corrigir problema com babel-plugin-root-import
+    "import/no-unresolved": "off",
+    "import/extensions": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-plugin-root-import": {
+        "rootPathSuffix": "src"
+      }
+    }
   }
 }
