@@ -12,6 +12,7 @@
 
 * **Modulo 2:** Iniciando back-end do GoBarber
 * **Modulo 3:** Continuando API do GoBarber
+* **Modulo 9:** GoBarber web
 
 ## Sobre o projeto
 
