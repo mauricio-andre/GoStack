@@ -16,10 +16,11 @@
 
 * **Desafio 2:** FastFeet, o início
 * **Desafio 3:** FastFeet, continuando a aplicação
+* **Desafio 9:** FastFeet, front-end web
 
 ## Nota do desenvolvedor
 
-Este diretório contém a resolução do desafio **FastFeet** proposto no bootcamp da turma GoStack 10, as instruções sobre o que se espera no cumprimento deste desafio encontram-se no diretório [instructions](./instructions) e estão descritas do mesmo modo como foram fornecidas aos participantes do bootcamp. Por este projeto ser um compilado de vários desafios, as instruções de cada desafio foram armazenados separadamente no diretório especificado.
+Este diretório contém a resolução do desafio **FastFeet** proposto no bootcamp da turma GoStack 10, as instruções sobre o que se espera no cumprimento deste desafio encontram-se no diretório [_instructions](./_instructions) e estão descritas do mesmo modo como foram fornecidas aos participantes do bootcamp. Por este projeto ser um compilado de vários desafios, as instruções de cada desafio foram armazenados separadamente no diretório especificado.
 
 ### Testando a API
 
