@@ -11,7 +11,13 @@ function Routes() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen
+          options={{
+            header: () => {},
+          }}
+          name="SignIn"
+          component={SignIn}
+        />
         <Stack.Screen name="SignUp" component={SignUp} />
       </Stack.Navigator>
     </NavigationContainer>
