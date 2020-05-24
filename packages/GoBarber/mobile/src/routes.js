@@ -18,7 +18,13 @@ function Routes() {
           name="SignIn"
           component={SignIn}
         />
-        <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen
+          options={{
+            header: () => {},
+          }}
+          name="SignUp"
+          component={SignUp}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import Background from '~/components/Background';
 
@@ -14,6 +15,7 @@ import {
 import logo from '~/assets/logo.png';
 
 export default function SignIn() {
+  const navigation = useNavigation();
   return (
     <Background>
       <Container>
@@ -34,7 +36,7 @@ export default function SignIn() {
 
           <SubmitButton onPress={() => {}}>Acessar</SubmitButton>
 
-          <SignLink onPress={() => {}}>
+          <SignLink onPress={() => navigation.navigate('SignUp')}>
             <SignLinkText>Criar conta gratuita</SignLinkText>
           </SignLink>
         </Form>
