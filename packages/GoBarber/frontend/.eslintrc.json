@@ -47,15 +47,12 @@
     // Permita repassar propriedades como {...props}
     "react/jsx-props-no-spreading": "off",
     // Permite usar variavel _id vinda do mongo
-    "no-underscore-dangle": ["error", { "allow": ["_id"] }],
-    // Remover essa configuração quando corrigir problema com babel-plugin-root-import
-    "import/no-unresolved": "off",
-    "import/extensions": "off"
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }]
   },
   "settings": {
     "import/resolver": {
       "babel-plugin-root-import": {
-        "rootPathSuffix": "src"
+        "rootPathSuffix": "packages/GoBarber/frontend/src"
       }
     }
   }
