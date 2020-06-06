@@ -1,14 +1,14 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { View } from 'react-native';
 
 import Background from '~/components/Background';
 
 import BottomTabs from '~/components/BottomTabs';
 
-export default function Dashboard() {
+export default function Profiler() {
   return (
     <Background>
-      <Text>Dashboard</Text>
+      <View />
       <BottomTabs />
     </Background>
   );

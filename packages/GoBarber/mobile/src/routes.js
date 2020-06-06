@@ -7,6 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Dashboard from './pages/Dashboard';
+import Profile from './pages/Profile';
 
 function Routes() {
   const signed = useSelector(state => state.auth.signed);
@@ -16,31 +17,14 @@ function Routes() {
   return (
     <NavigationContainer>
       {!signed ? (
-        <Stack.Navigator>
-          <Stack.Screen
-            options={{
-              header: () => {},
-            }}
-            name="SignIn"
-            component={SignIn}
-          />
-          <Stack.Screen
-            options={{
-              header: () => {},
-            }}
-            name="SignUp"
-            component={SignUp}
-          />
+        <Stack.Navigator headerMode="none">
+          <Stack.Screen name="SignIn" component={SignIn} />
+          <Stack.Screen name="SignUp" component={SignUp} />
         </Stack.Navigator>
       ) : (
-        <Stack.Navigator independent>
-          <Stack.Screen
-            options={{
-              header: () => {},
-            }}
-            name="Dashboard"
-            component={Dashboard}
-          />
+        <Stack.Navigator headerMode="none">
+          <Stack.Screen name="Dashboard" component={Dashboard} />
+          <Stack.Screen name="Profile" component={Profile} />
         </Stack.Navigator>
       )}
     </NavigationContainer>
