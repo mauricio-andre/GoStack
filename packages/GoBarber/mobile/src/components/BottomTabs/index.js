@@ -17,6 +17,10 @@ export default function BottomTabs() {
         <Icon name="event" size={20} color="#fff" />
         <TextButton>Agendamentos</TextButton>
       </Button>
+      <Button onPress={() => navigation.navigate('SelectProvider')}>
+        <Icon name="add-circle-outline" size={20} color="#fff" />
+        <TextButton>Agendar</TextButton>
+      </Button>
       <Button onPress={() => navigation.navigate('Profile')}>
         <Icon name="person" size={20} color="#fff" />
         <TextButton>Meu perfil</TextButton>
