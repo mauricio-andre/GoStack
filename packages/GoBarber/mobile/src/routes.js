@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 // import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -67,7 +66,7 @@ function Routes() {
           />
           <Stack.Screen
             options={{
-              headerTitle: 'Selecione a data e hora',
+              headerTitle: 'Selecione o horário',
             }}
             name="SelectDateTime"
             component={SelectDateTime}
