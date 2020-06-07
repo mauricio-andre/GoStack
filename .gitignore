@@ -3,7 +3,8 @@ node_modules/
 tmp/
 .env
 .env.test
-
+**/__tests__/coverage
+*.sqlite
 
 # OSX
 #
