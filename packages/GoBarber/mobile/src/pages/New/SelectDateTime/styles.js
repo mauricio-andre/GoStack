@@ -1,3 +1,5 @@
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
-export const Contianer = styled.View``;
+export const Contianer = styled.View`
+  flex: 1;
+`;
