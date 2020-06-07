@@ -24,7 +24,7 @@ export default function SelectProvider() {
       <Contianer>
         <ProvidersList
           data={prociders}
-          keyExtrator={provider => String(provider.id)}
+          keyExtractor={provider => String(provider.id)}
           renderItem={({ item: provider }) => (
             <Provider
               onPress={() =>

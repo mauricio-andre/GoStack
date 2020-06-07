@@ -52,6 +52,6 @@ export default function DateInput({ date, onChange }) {
 }
 
 DateInput.propTypes = {
-  date: PropTypes.element.isRequired,
+  date: PropTypes.objectOf(Date).isRequired,
   onChange: PropTypes.func.isRequired,
 };
