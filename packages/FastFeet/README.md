@@ -14,9 +14,10 @@
 
 ## Lista de correspondências
 
-* **Desafio 2:** FastFeet, o início
-* **Desafio 3:** FastFeet, continuando a aplicação
-* **Desafio 9:** FastFeet, front-end web
+* **Desafio 02:** FastFeet, o início
+* **Desafio 03:** FastFeet, continuando a aplicação
+* **Desafio 09:** FastFeet, front-end web
+* **Desafio 10:** FastFeet, mobile
 
 ## Nota do desenvolvedor
 
