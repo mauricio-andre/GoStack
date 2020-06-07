@@ -73,7 +73,7 @@ function Routes() {
           />
           <Stack.Screen
             options={{
-              headerTitle: 'confirm',
+              headerTitle: 'Confirmar agendamento',
             }}
             name="Confirm"
             component={Confirm}
