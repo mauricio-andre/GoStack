@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "react-native-cli": "^2.0.1",
-    "react-native-rename": "^2.4.1"
+    "react-native-rename": "^2.4.1",
+    "@rocketseat/omni": "^0.0.7"
   }
 }
