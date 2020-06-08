@@ -5,6 +5,7 @@ tmp/
 .env.test
 **/__tests__/coverage
 *.sqlite
+dist
 
 # OSX
 #
