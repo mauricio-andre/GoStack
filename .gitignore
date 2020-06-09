@@ -2,7 +2,10 @@ node_modules/
 .vscode/
 tmp/
 .env
-
+.env.test
+**/__tests__/coverage
+*.sqlite
+dist
 
 # OSX
 #
