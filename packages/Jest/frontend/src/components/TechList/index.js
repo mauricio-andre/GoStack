@@ -6,7 +6,7 @@ import { addTechs } from '../../store/modules/techs/actions';
 export default function TechList() {
   const dispatch = useDispatch();
   const [newTech, setNewTech] = useState('');
-  const techs = useSelector(state => state.techs);
+  const techs = useSelector((state) => state.techs);
 
   function handleAddTech() {
     dispatch(addTechs(newTech));
@@ -16,7 +16,7 @@ export default function TechList() {
   return (
     <form data-testid="tech-form" onSubmit={handleAddTech}>
       <ul data-testid="tech-list">
-        {techs.map(tech => (
+        {techs.map((tech) => (
           <li key={tech}>{tech}</li>
         ))}
       </ul>
@@ -26,7 +26,7 @@ export default function TechList() {
         <input
           type="text"
           value={newTech}
-          onChange={e => setNewTech(e.target.value)}
+          onChange={(e) => setNewTech(e.target.value)}
         />
       </label>
 

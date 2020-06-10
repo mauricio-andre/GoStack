@@ -8,10 +8,12 @@ import TechList from '~/components/TechList';
 jest.mock('react-redux');
 
 describe('TechList component', () => {
-  it('should render tech list', () =>{
-    useSelector.mockImplementation(cb => cb({
-      techs: ['Node.js', 'ReactJS'],
-    }));
+  it('should render tech list', () => {
+    useSelector.mockImplementation((cb) =>
+      cb({
+        techs: ['Node.js', 'ReactJS'],
+      })
+    );
 
     const { getByTestId, getByText } = render(<TechList />);
 
@@ -19,14 +21,14 @@ describe('TechList component', () => {
     expect(getByTestId('tech-list')).toContainElement(getByText('ReactJS'));
   });
 
-  it('should bo able to add new tech', () => {
+  it('should be able to add new tech', () => {
     const { getByTestId, getByLabelText } = render(<TechList />);
 
     const dispatch = jest.fn();
 
-    useDispatch.mockReturnValue(dispatch)
+    useDispatch.mockReturnValue(dispatch);
 
-    fireEvent.change(getByLabelText('Tech'), { target: { value: 'Node.js' }});
+    fireEvent.change(getByLabelText('Tech'), { target: { value: 'Node.js' } });
     fireEvent.submit(getByTestId('tech-form'));
 
     expect(dispatch).toHaveBeenCalledWith(addTechs('Node.js'));
