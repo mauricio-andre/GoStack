@@ -2,19 +2,31 @@ import React, { useState } from 'react';
 
 export default function TechList() {
   const [techs, setTechs] = useState([]);
+  const [newTech, setNewTech] = useState('');
 
   function handleAddTech() {
-    setTechs([ ...techs, 'Node.js' ]);
+    setTechs([ ...techs, newTech ]);
+    setNewTech('');
   }
 
   return (
-    <div>
+    <form data-testid="tech-form" onSubmit={handleAddTech}>
       <ul data-testid="tech-list">
         {techs.map(tech => (
           <li key={tech}>{tech}</li>
         ))}
       </ul>
-      <button onClick={handleAddTech}>Adicionar</button>
-    </div>
+
+      <label>
+        Tech
+        <input
+          type="text"
+          value={newTech}
+          onChange={e => setNewTech(e.target.value)}
+        />
+      </label>
+
+      <button type="submit">Adicionar</button>
+    </form>
   );
 }
