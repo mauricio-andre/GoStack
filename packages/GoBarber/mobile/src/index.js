@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { StatusBar } from 'react-native';
+import CodePush from 'react-native-code-push';
 
 import './config/ReactotronConfig';
 import { store, persistor } from './store';
@@ -18,4 +19,6 @@ const App = () => {
   );
 };
 
-export default App;
+export default CodePush({
+  checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME,
+})(App);
