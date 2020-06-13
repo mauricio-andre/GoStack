@@ -1,14 +1,3 @@
-buildscript {
-    repositories {
-        maven { url 'https://plugins.gradle.org/m2/' } // Gradle Plugin Portal
-    }
-    dependencies {
-        classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:[0.12.6, 0.99.99]'
-    }
-}
-
-apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
-
 apply plugin: "com.android.application"
 
 import com.android.build.OutputFile
@@ -140,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.gobarber"
+        applicationId "com.mobile"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -218,7 +207,7 @@ dependencies {
     }
 
     if (enableHermes) {
-        def hermesPath = "../../node_modules/hermes-engine/android/";
+        def hermesPath = "../../../../../node_modules/hermes-engine/android/";
         debugImplementation files(hermesPath + "hermes-debug.aar")
         releaseImplementation files(hermesPath + "hermes-release.aar")
     } else {
@@ -232,12 +221,5 @@ task copyDownloadableDepsToLibs(type: Copy) {
     from configurations.compile
     into 'libs'
 }
-
-project.ext.vectoricons = [
-    iconFontNames: [ 'MaterialIcons.ttf' ],
-    iconFontsDir: "../../../../../node_modules/react-native-vector-icons/Fonts"
-]
-
-apply from: "../../../../../node_modules/react-native-vector-icons/fonts.gradle"
 
 apply from: file("../../../../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
