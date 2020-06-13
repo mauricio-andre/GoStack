@@ -13,6 +13,10 @@
 * **Modulo 2:** Iniciando back-end do GoBarber
 * **Modulo 3:** Continuando API do GoBarber
 * **Modulo 9:** GoBarber web
+* **Modulo 12:** Deploy no NodeJS
+* **Modulo 14:** Deploy no ReactJS e React Native
+* **Modulo 15:** Patterns e recursos avançados
+* **Modulo 16:** Segurança no NodeJS
 
 ## Sobre o projeto
 

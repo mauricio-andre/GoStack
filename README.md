@@ -49,6 +49,7 @@ Abaixo segue uma lista com os projetos desenvolvidos no GoStack 10, esses projet
 * [FirstReactApp:](./packages/FirstReactApp/README.md) Primeira aplicação React Native que lista usuários do github
 * [FirstReactJS:](./packages/FirstReactJS/README.md) Primeira aplicação ReactJS desenvolvida
 * [GoBarber:](./packages/GoBarber/README.md) Aplicação completa backend, frontend e mobile para uma barbearia
+* [Jest:](./packages/Jest/README.md) Exemplos de testes automatizados com o Jest para backend, frontend e mobile
 * [ListRepository:](./packages/ListRepository/README.md) Projeto frontend que apresenta uma lista de repositórios do github e seus detalhes
 * [ProjectTask:](./packages/ProjectTask/README.md) API simples que para salvar projetos e tarefas
 * [ReactHooks:](./packages/ReactHooks/README.md) Projeto pequeno para demonstração do uso de hooks

@@ -10,7 +10,6 @@
     "react-native": "*"
   },
   "devDependencies": {
-    "@rocketseat/omni": "^0.0.7",
     "appcenter-cli": "^2.5.4",
     "react-native-cli": "^2.0.1",
     "react-native-rename": "^2.4.1"
