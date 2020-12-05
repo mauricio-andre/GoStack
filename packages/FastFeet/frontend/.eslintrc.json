@@ -1,0 +1,59 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly",
+    "__DEV__": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "import",
+    "prettier",
+    "react-hooks"
+  ],
+  "rules": {
+    // Aponte todas as inconsistências como erro
+    "prettier/prettier": "error",
+    // Aponte como aviso o uso de jsx em arquivos diferentes de jsx ou js
+    "react/jsx-filename-extension": [
+      "warn",
+      { "extensions": [ ".jsx", ".js" ] }
+    ],
+    // Não obrigue export default em arquivos com uma única exportação
+    "import/prefer-default-export": "off",
+    // Não aponte erro ao utilizar console.tron
+    "no-console": ["error", { "allow": ["tron"] }],
+    // Não aponte erro ao editar variáveis recebidas na função
+    "no-param-reassign": "off",
+    // Permita repassar propriedades como {...props}
+    "react/jsx-props-no-spreading": "off",
+    // Permite usar variável _id vinda do mongo
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }],
+    // Avise sobre qualquer erro no uso das hooks
+    "react-hooks/rules-of-hooks": "error",
+    // Avise sobre falta de dependências em useEffect
+    "react-hooks/exhaustive-deps": "warn"
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-plugin-root-import": {
+        "rootPathSuffix": "packages/FastFeet/frontend/src"
+      }
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { Op } from 'sequelize';
 import Delivery from '../models/Delivery';
 import Recipient from '../models/Recipient';
 import Deliveryman from '../models/Deliveryman';
@@ -10,8 +11,17 @@ import DeliveryProblem from '../models/DeliveryProblem';
 
 class DeliveryController {
   async index(req, res) {
-    const { problem } = req.query;
+    const { problem, product } = req.query;
+
+    const where = {};
+    if (product) {
+      where.product = {
+        [Op.iLike]: `%${product}%`,
+      };
+    }
+
     const deliveries = await Delivery.findAll({
+      where,
       attributes: [
         'id',
         'product',
@@ -24,7 +34,12 @@ class DeliveryController {
       ],
       include: [
         {
-          attributes: ['description'],
+          model: File,
+          as: 'signature',
+          attributes: ['url'],
+        },
+        {
+          attributes: ['id', 'description'],
           model: DeliveryProblem,
           as: 'deliveryProblem',
           right: problem === 'yes',
@@ -32,12 +47,28 @@ class DeliveryController {
         {
           model: Recipient,
           as: 'recipient',
-          attributes: ['name', 'postalCode'],
+          attributes: [
+            'id',
+            'name',
+            'postalCode',
+            'address',
+            'number',
+            'postalCode',
+            'city',
+            'region',
+          ],
         },
         {
           model: Deliveryman,
           as: 'deliveryman',
-          attributes: ['name'],
+          attributes: ['id', 'name', 'avatarId'],
+          include: [
+            {
+              model: File,
+              as: 'avatar',
+              attributes: ['name', 'path', 'url'],
+            },
+          ],
         },
       ],
     });

@@ -6,9 +6,7 @@ import authConfig from '../../config/auth';
 class SessionContorller {
   async store(req, res) {
     const schema = Yup.object().shape({
-      email: Yup.string()
-        .email()
-        .required(),
+      email: Yup.string().email().required(),
       password: Yup.string().required(),
     });
 
@@ -32,11 +30,9 @@ class SessionContorller {
         name,
         email,
       },
-      token: {
-        token: jwt.sign({ id }, authConfig.secret, {
-          expiresIn: authConfig.expiresIn,
-        }),
-      },
+      token: jwt.sign({ id }, authConfig.secret, {
+        expiresIn: authConfig.expiresIn,
+      }),
     });
   }
 }
