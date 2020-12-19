@@ -1,17 +1,18 @@
 {
+  "name": "go-stack-10",
+  "version": "1.0.0",
   "private": true,
-  "workspaces": [
-    "packages/*",
-    "packages/*/backend",
-    "packages/*/frontend",
-    "packages/*/mobile"
-  ],
-  "dependencies": {
-    "react-native": "*"
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "packages/*/backend",
+      "packages/*/mobile",
+      "packages/*/web"
+    ]
   },
+  "author": "Mauricio R Andre <mauricio-andre>",
+  "license": "MIT",
   "devDependencies": {
-    "appcenter-cli": "^2.5.4",
-    "react-native-cli": "^2.0.1",
-    "react-native-rename": "^2.4.1"
+    "@go-stack-10/eslint-config": "*"
   }
 }

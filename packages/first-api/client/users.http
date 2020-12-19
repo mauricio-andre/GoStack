@@ -1,0 +1,21 @@
+### Consulta a lista de usuários
+GET http://localhost:3000/users
+
+### Criar novo usuário
+POST http://localhost:3000/users HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Georgia"
+}
+
+### Alterar nome de usuário
+PUT http://localhost:3000/users/2 HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Grilo"
+}
+
+### Excluir usuário
+DELETE http://localhost:3000/users/1 HTTP/1.1

@@ -1,0 +1,33 @@
+### Consulta todos os projetos
+GET http://localhost:3000/projects
+
+### Consulta um projeto específico
+GET http://localhost:3000/projects/0
+
+### Cria um projeto novo
+POST http://localhost:3000/projects HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": "0",
+	"title": "Novo projeto"
+}
+
+### Inclui tarefas ao projeto
+POST http://localhost:3000/projects/0/tasks HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Tarefa 1"
+}
+
+### Altera o nome do projeto
+PUT http://localhost:3000/projects/0 HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Novo nome de projeto"
+}
+
+### Exclui o projeto
+DELETE http://localhost:3000/projects/0 HTTP/1.1
