@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
   env: {
     browser: true,
@@ -7,14 +5,9 @@ module.exports = {
     node: true,
     jest: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
-    "prettier",
-    "prettier/react"
-  ],
+  extends: ['plugin:react/recommended', 'airbnb', 'prettier', 'prettier/react'],
   globals: {
-    __DEV__: "readonly"
+    __DEV__: 'readonly',
   },
   parserOptions: {
     ecmaFeatures: {
@@ -23,41 +16,33 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-    'prettier',
-    'import',
-    'react-hooks',
-  ],
-  parser: "babel-eslint",
+  plugins: ['react', 'prettier', 'import', 'react-hooks'],
+  parser: 'babel-eslint',
   rules: {
     // Aponte inconsistências do prettier como erro
     'prettier/prettier': 'error',
     // Aponte como aviso o uso de jsx em arquivos diferentes de jsx ou js
-    "react/jsx-filename-extension": [
-      "warn",
-      { "extensions": [ ".jsx", ".js" ] }
-    ],
+    'react/jsx-filename-extension': ['warn', { extensions: ['.jsx', '.js'] }],
     // Não obrigue export default em arquivos com uma única exportação
-    "import/prefer-default-export": "off",
+    'import/prefer-default-export': 'off',
     // Não aponte erro ao utilizar console.tron
-    "no-console": ["error", { "allow": ["tron"] }],
+    'no-console': ['error', { allow: ['tron'] }],
     // Não aponte erro ao editar variáveis recebidas na função
-    "no-param-reassign": "off",
+    'no-param-reassign': 'off',
     // Não obrigue usar this em funções de classes
-    "class-methods-use-this": "off",
+    'class-methods-use-this': 'off',
     // Avise sobre qualquer erro no uso das hooks
-    "react-hooks/rules-of-hooks": "error",
+    'react-hooks/rules-of-hooks': 'error',
     // Avise sobre falta de dependências em useEffect
-    "react-hooks/exhaustive-deps": "warn",
+    'react-hooks/exhaustive-deps': 'warn',
     // Permita repassar propriedades como {...props}
-    "react/jsx-props-no-spreading": "off",
+    'react/jsx-props-no-spreading': 'off',
   },
   settings: {
-    "import/resolver": {
-      "babel-plugin-root-import": {
-        rootPathSuffix: ''
-      }
-    }
-  }
+    'import/resolver': {
+      'babel-plugin-root-import': {
+        rootPathSuffix: '',
+      },
+    },
+  },
 };
