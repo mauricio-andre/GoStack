@@ -63,8 +63,8 @@ Abaixo estão listados os nomes de todos os projetos, uma breve descrição sobr
 * [react-hooks:](./packages/react-hooks) Projeto node para demonstração do uso de hooks
 
 **Projetos localizados em outros repositórios**
-* fast-feet: Aplicação completa backend, web e mobile para gerenciar entregas
-* go-barber: Aplicação completa backend, web e mobile para gerenciar uma barbearia
+* [fast-feet](https://github.com/mauricio-andre/fastFeet): Aplicação completa backend, web e mobile para gerenciar entregas
+* [go-barber](https://github.com/mauricio-andre/goBarber): Aplicação completa backend, web e mobile para gerenciar uma barbearia
 * [rocket-shoes:](https://github.com/mauricio-andre/Rocketshoes) Um e-commerce web e mobile que demonstra o uso da arquitetura flux
 
 ### Licença
